@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "../../components/ui/button";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
+import { API_BASE_URL } from '../../lib/api';
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
@@ -13,7 +14,7 @@ const Portfolio = () => {
   useEffect(() => {
     const getMyProjects = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/project/getall`, {
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/project/getall`, {
           withCredentials: true,
         });
         if (data.success && Array.isArray(data.projects)) {

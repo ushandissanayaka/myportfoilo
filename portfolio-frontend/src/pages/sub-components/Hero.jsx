@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaYoutube, FaMedium, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { ExternalLink, Download } from 'lucide-react';
 import Plasma from '../../components/ui/Plasma';
+import { API_BASE_URL } from '../../lib/api';
 
 const Hero = () => {
   const [user, setUser] = useState({});
@@ -13,7 +14,7 @@ const Hero = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/me/portfoilo`, {
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/user/me/portfoilo`, {
           withCredentials: true
         });
 

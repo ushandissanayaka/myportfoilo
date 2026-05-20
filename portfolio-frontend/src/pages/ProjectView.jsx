@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../lib/api';
 
 const ProjectsView = () => {
   const [title, setTitle] = useState("");
@@ -18,7 +19,7 @@ const ProjectsView = () => {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/project/get/${id}`, {
+        const res = await axios.get(`${API_BASE_URL}/api/v1/project/get/${id}`, {
           withCredentials: true,
         });
         const project = res.data.project;

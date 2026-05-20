@@ -5,6 +5,7 @@ import { Label } from '../../components/ui/label';
 import { Input } from '../../components/ui/input';
 import { Button } from '../../components/ui/button';
 import LiquidEther from '../../components/ui/LiquidEther';
+import { API_BASE_URL } from '../../lib/api';
 
 const Contact = () => {
   const [senderName, setSenderName] = useState("");
@@ -34,7 +35,7 @@ const Contact = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/v1/message/send`,
+        `${API_BASE_URL}/api/v1/message/send`,
         { senderName, subject, message },
         {
           headers: { "Content-Type": "application/json" },

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/ui/card';
+import { API_BASE_URL } from '../../lib/api';
 
 const Apps = () => {
   const [apps, setApps] = useState([]); // State to store apps
@@ -12,7 +13,7 @@ const Apps = () => {
     const getMyApps = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/v1/softwareApplication/getall`,
+          `${API_BASE_URL}/api/v1/softwareApplication/getall`,
           { withCredentials: true }
         );
 

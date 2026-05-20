@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { API_BASE_URL } from '../../lib/api';
 
 const About = () => {
   const [user, setUser] = useState({});
@@ -10,7 +11,7 @@ const About = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/me/portfoilo`, {
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/user/me/portfoilo`, {
           withCredentials: true
         });
         if (data.success && data.user) {
