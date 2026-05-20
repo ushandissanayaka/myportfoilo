@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+.dancing_text {
+  font-family: "Dancing Script", cursive;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#642bff, #ff22e6);
+  border-radius: 7px;
+}
+
+/* Text Tube Light Effect */
+.text-tubeLight-effect {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  outline: none;
+  overflow-y: hidden;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  18%,
+  20%,
+  50.1%,
+  60%,
+  65.1%,
+  80%,
+  90.1%,
+  92% {
+    color: gray;
+    text-shadow: none;
+  }
+
+  18.1%,
+  20.1%,
+  30%,
+  50%,
+  60.1%,
+  65%,
+  80.1%,
+  90%,
+  92.1%,
+  100% {
+    color: #fff;
+    text-shadow: 0 0 1px rgb(150, 150, 150),
+      0 0 2px rgb(150, 150, 150),
+      0 0 5px rgb(150, 150, 150),
+      0 0 20px rgb(150, 150, 150);
+  }
+}
+
+/* Center the content */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mode Toggle Container */
+.mode-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Hero Full Width */
+.hero-full-width {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Ensure it takes the full viewport height */
+  width: 100%;
+}
