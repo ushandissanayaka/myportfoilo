@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../lib/api';
 
 const Timeline = () => {
   const [timeline, setTimeline] = useState([]);
@@ -10,7 +11,7 @@ const Timeline = () => {
     const getMyTimeline = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/v1/timeline/getall`,
+          `${API_BASE_URL}/api/v1/timeline/getall`,
           { withCredentials: true }
         );
         setTimeline(data.timelines);

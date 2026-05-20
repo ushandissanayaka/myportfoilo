@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/ui/card';
+import { API_BASE_URL } from '../../lib/api';
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -11,7 +12,7 @@ const Skills = () => {
     const getMySkills = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/v1/skill/getall`,
+          `${API_BASE_URL}/api/v1/skill/getall`,
           { withCredentials: true }
         );
         setSkills(data.skills);

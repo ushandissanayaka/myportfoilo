@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
+import { API_BASE_URL } from '../../lib/api';
 
 const MyWorks = () => {
   const [myWorks, setMyWorks] = useState([]);
@@ -11,7 +12,7 @@ const MyWorks = () => {
     const fetchMyWorks = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/v1/myWorks/getall`,
+          `${API_BASE_URL}/api/v1/myWorks/getall`,
           { withCredentials: true }
         );
         setMyWorks(data.myWorks);
