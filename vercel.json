@@ -19,11 +19,19 @@
       "dest": "server/app.js"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "/portfolio-frontend/dist/assets/$1"
+    },
+    {
+      "src": "/vite.svg",
+      "dest": "/portfolio-frontend/dist/vite.svg"
+    },
+    {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/portfolio-frontend/dist/index.html"
     }
   ]
 }
