@@ -1,17 +1,27 @@
 import mongoose from "mongoose";
 
-const dbConnection = ()=>{
+let cachedConnection = null;
+let cachedPromise = null;
+
+const dbConnection = async () => {
     if (!process.env.MONGO_URI) {
-        console.error("CRITICAL ERROR: MONGO_URI is not defined in environment variables!");
-        return; // Prevents the fatal crash
+        throw new Error("MONGO_URI is not defined in environment variables.");
     }
-    mongoose.connect(process.env.MONGO_URI, {
-        dbName: "NEW_PORTFOLIO"
-    }).then(()=>{
-        console.log("connected to database.")
-    }).catch((error)=>{
-        console.log(`Some Error Occured While Connecting To Database:  ${error}`)
-    })
+
+    if (cachedConnection) {
+        return cachedConnection;
+    }
+
+    if (!cachedPromise) {
+        cachedPromise = mongoose.connect(process.env.MONGO_URI.trim(), {
+            dbName: "NEW_PORTFOLIO",
+            serverSelectionTimeoutMS: 10000,
+        });
+    }
+
+    cachedConnection = await cachedPromise;
+    console.log("connected to database.");
+    return cachedConnection;
 };
 
 export default dbConnection;
