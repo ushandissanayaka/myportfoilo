@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const MyWorks = () => {
@@ -29,7 +30,7 @@ const MyWorks = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen dark:bg-black text-white">
-        Loading...
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" />
       </div>
     );
   }

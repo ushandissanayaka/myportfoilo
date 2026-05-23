@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/ui/card';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const Apps = () => {
@@ -38,7 +39,7 @@ const Apps = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
-        Loading...
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" />
       </div>
     );
   }
@@ -57,7 +58,6 @@ const Apps = () => {
       {/* Centered Header */}
       <div className="flex justify-center items-center w-full">
         <h1 className='flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto w-fit px-2 font-extrabold text-center uppercase'>
-          My
           <span className='text-tubeLight-effect font-extrabold'>Applications</span>
         </h1>
       </div>

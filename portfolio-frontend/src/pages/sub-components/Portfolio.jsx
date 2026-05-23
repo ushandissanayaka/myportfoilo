@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "../../components/ui/button";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const Portfolio = () => {
@@ -33,13 +34,15 @@ const Portfolio = () => {
   }, []);
 
   // Defensive check to ensure projects is always an array
-  const safeProjects = Array.isArray(projects) ? projects : [];
+  const safeProjects = Array.isArray(projects)
+    ? [...projects].sort((a, b) => String(b._id).localeCompare(String(a._id)))
+    : [];
   const displayedProjects = viewAll ? safeProjects : safeProjects.slice(0, 6);
 
   if (loading) {
     return (
       <div className='w-full flex justify-center items-center py-20'>
-        <p className='text-gray-500 animate-pulse'>Loading projects...</p>
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" label="Loading projects..." />
       </div>
     );
   }

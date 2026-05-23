@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const Timeline = () => {
@@ -26,7 +27,11 @@ const Timeline = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" />
+      </div>
+    );
   }
 
   if (error) {

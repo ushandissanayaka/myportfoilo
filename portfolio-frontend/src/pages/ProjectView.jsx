@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import LoadingSpinner from '../components/ui/loading-spinner';
 import { API_BASE_URL } from '../lib/api';
 
 const ProjectsView = () => {
@@ -13,6 +14,7 @@ const ProjectsView = () => {
   const [stack, setStack] = useState("");
   const [deployed, setDeployed] = useState(false); // Initialize as boolean
   const [projectBanner, setProjectBanner] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -33,11 +35,21 @@ const ProjectsView = () => {
         setProjectBanner(project.projectBanner?.url || null);
       } catch (error) {
         toast.error(error.response?.data?.message || "Failed to fetch project details");
+      } finally {
+        setLoading(false);
       }
     };
 
     getProjects();
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" />
+      </div>
+    );
+  }
 
   return (
     <div className='w-full min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-10 sm:py-20 flex flex-col items-center'>

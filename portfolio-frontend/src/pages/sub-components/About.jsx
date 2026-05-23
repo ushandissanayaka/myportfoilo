@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const About = () => {
@@ -30,7 +31,11 @@ const About = () => {
   }, []);
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-black">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-black">
+        <LoadingSpinner className="text-blue-600 dark:text-neutral-50" />
+      </div>
+    );
   }
 
   if (error) {

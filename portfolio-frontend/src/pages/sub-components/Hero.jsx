@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaYoutube, FaMedium, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { ExternalLink, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import Plasma from '../../components/ui/Plasma';
+import cvFile from '../../images/Ushan_Pramod_Dissanayaka_FlowCV_Resume_2026-05-23 (1).pdf';
 import { API_BASE_URL } from '../../lib/api';
 
 const Hero = () => {
@@ -35,7 +37,11 @@ const Hero = () => {
   }, []);
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen bg-black">
+        <LoadingSpinner className="text-neutral-50" />
+      </div>
+    );
   }
 
   if (error) {
@@ -166,7 +172,7 @@ const Hero = () => {
           </Link>
 
           <a 
-            href="/resume.pdf" 
+            href={cvFile}
             target='_blank' 
             rel="noreferrer"
             download="Ushan_Dissanayaka_Resume.pdf"
