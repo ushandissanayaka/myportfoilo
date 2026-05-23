@@ -28,6 +28,8 @@
   text-transform: uppercase;
   outline: none;
   overflow-y: hidden;
+  max-width: 100%;
+  padding-inline: 0.08em;
   animation: animate 5s linear infinite;
 }
 

@@ -44,15 +44,15 @@ const ProjectsView = () => {
       {/* Main Content Wrapper */}
       <div className='w-full max-w-[95%] sm:max-w-3xl lg:max-w-6xl mx-auto'>
         {/* Heading Section */}
-        <div className='relative w-full text-center mb-16'>
-          <h1 className='inline-flex gap-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[10px] sm:tracking-[15px] font-extrabold'>
+        <div className='relative flex w-full flex-col items-center overflow-visible text-center mb-12 sm:mb-16'>
+          <h1 className='flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto w-fit px-2 font-extrabold'>
             PROJECT
             <span className='text-tubeLight-effect font-extrabold'>DETAILS</span>
           </h1>
 
           {/* Centered Decorative Line */}
-          <div className='mt-8 flex justify-center'>
-            <div className='relative w-[80%] sm:w-[60%] md:w-[40%] h-1 bg-slate-200 dark:bg-gray-500'>
+          <div className='mt-3 sm:mt-4 flex w-full justify-center'>
+            <div className='relative w-[90%] sm:w-[60%] md:w-[40%] h-1 bg-slate-200 dark:bg-gray-500'>
               {/* Dots on the left side */}
               <div className='absolute -left-6 top-1/2 transform -translate-y-1/2 flex gap-1'>
                 <span className='w-2 h-2 bg-slate-200 dark:bg-gray-500 rounded-full'></span>

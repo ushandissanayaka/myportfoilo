@@ -116,7 +116,9 @@ const Hero = () => {
               overflow: 'hidden',
               whiteSpace: 'nowrap',
               borderRight: '0.15em solid orange',
-              animation: 'typing 10s steps(45, end) infinite, blink-caret 0.75s step-end infinite',
+              display: 'inline-block',
+              animation: 'typing 10s steps(30, end) infinite, blink-caret 0.75s step-end infinite',
+              '--typing-width': '50ch',
               fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
               lineHeight: '1.5',
               fontWeight: 600,
@@ -197,7 +199,7 @@ const Hero = () => {
         {`
           @keyframes typing {
             0% { width: 0; }
-            50% { width: 100%; }
+            50% { width: var(--typing-width); }
             100% { width: 0; }
           }
 
