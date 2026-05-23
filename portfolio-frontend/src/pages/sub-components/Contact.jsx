@@ -5,6 +5,7 @@ import { Label } from '../../components/ui/label';
 import { Input } from '../../components/ui/input';
 import { Button } from '../../components/ui/button';
 import LiquidEther from '../../components/ui/LiquidEther';
+import LoadingSpinner from '../../components/ui/loading-spinner';
 import { API_BASE_URL } from '../../lib/api';
 
 const Contact = () => {
@@ -161,7 +162,14 @@ const Contact = () => {
           {/* Submit Button */}
           <div className='flex justify-end'>
             <Button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 sm:w-52" disabled={loading}>
-              {loading ? "Sending..." : "SEND MESSAGE"}
+              {loading ? (
+                <>
+                  <LoadingSpinner size="sm" className="text-white" label="Sending..." />
+                  <span>Sending...</span>
+                </>
+              ) : (
+                "SEND MESSAGE"
+              )}
             </Button>
           </div>
         </form>
