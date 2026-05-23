@@ -54,13 +54,13 @@ const Apps = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8 px-4 py-16 sm:gap-12 sm:p-8 bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col items-center gap-8 overflow-x-hidden px-4 py-16 sm:gap-12 sm:p-8 bg-gray-100 dark:bg-gray-900">
       {/* Centered Header */}
       <div className="flex justify-center items-center w-full">
-        <h1 className='max-w-full overflow-visible text-center text-[clamp(1.65rem,8vw,3rem)] lg:text-5xl leading-tight tracking-[1px] sm:tracking-[4px] md:tracking-[8px] font-extrabold uppercase'>
-          <span className='text-tubeLight-effect font-extrabold px-1'>Applications</span>
-        </h1>
-      </div>
+  <h1 className='text-center text-[clamp(1.15rem,5.8vw,3rem)] lg:text-5xl leading-tight tracking-normal md:tracking-[6px] font-extrabold uppercase'>
+    <span className='text-tubeLight-effect font-extrabold'>Applications</span>
+  </h1>
+</div>
 
       {/* Apps Grid */}
       <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6'>
