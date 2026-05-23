@@ -57,8 +57,8 @@ const Apps = () => {
     <div className="min-h-screen flex flex-col items-center gap-8 px-4 py-16 sm:gap-12 sm:p-8 bg-gray-100 dark:bg-gray-900">
       {/* Centered Header */}
       <div className="flex justify-center items-center w-full">
-        <h1 className='flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto w-fit px-2 font-extrabold text-center uppercase'>
-          <span className='text-tubeLight-effect font-extrabold'>Applications</span>
+        <h1 className='max-w-full overflow-visible text-center text-[clamp(1.65rem,8vw,3rem)] lg:text-5xl leading-tight tracking-[1px] sm:tracking-[4px] md:tracking-[8px] font-extrabold uppercase'>
+          <span className='text-tubeLight-effect font-extrabold px-1'>Applications</span>
         </h1>
       </div>
 

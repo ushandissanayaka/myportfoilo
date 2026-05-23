@@ -18,6 +18,14 @@ const ProjectsView = () => {
 
   const { id } = useParams();
 
+  const normalizeList = (value) => {
+    if (Array.isArray(value)) return value;
+    if (typeof value === 'string') {
+      return value.split(',').map((item) => item.trim()).filter(Boolean);
+    }
+    return [];
+  };
+
   useEffect(() => {
     const getProjects = async () => {
       try {
@@ -29,7 +37,7 @@ const ProjectsView = () => {
         setDescription(project.description);
         setStack(project.stack);
         setDeployed(project.deployed);
-        setTechnologies(project.technologies || []); // Ensure it's an array
+        setTechnologies(normalizeList(project.technologies));
         setGitRepoLink(project.gitRepoLink);
         setProjectLink(project.projectLink);
         setProjectBanner(project.projectBanner?.url || null);
@@ -149,12 +157,19 @@ const ProjectsView = () => {
             <div className='space-y-6'>
               <div>
                 <label className='block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2'>Technologies Used</label>
-                <div className='flex flex-wrap gap-2 px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900 min-h-[50px]'>
-                   {technologies.map((tech, idx) => (
-                     <span key={idx} className='bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium'>
-                       {tech}
-                     </span>
-                   ))}
+                <div className='flex w-full max-w-full flex-wrap items-start gap-2 overflow-hidden px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900 min-h-[50px]'>
+                  {technologies.length > 0 ? (
+                    technologies.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className='max-w-full break-words rounded-full bg-blue-100 px-3 py-1 text-xs sm:text-sm font-medium leading-snug text-blue-800 dark:bg-blue-900/40 dark:text-blue-200'
+                      >
+                        {tech}
+                      </span>
+                    ))
+                  ) : (
+                    <span className='text-sm text-gray-500 dark:text-gray-400'>Not Available</span>
+                  )}
                 </div>
               </div>
               
