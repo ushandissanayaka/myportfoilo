@@ -55,7 +55,7 @@ const Contact = () => {
   };
 
   return (
-    <div className='min-h-screen flex flex-col items-center p-4 relative overflow-hidden bg-black' data-no-blob-cursor="true">
+    <div className='min-h-screen flex flex-col items-center p-4 relative overflow-x-hidden bg-black' data-no-blob-cursor="true">
       {/* LiquidEther Animated Background */}
       <div className="absolute inset-0 z-0">
         <LiquidEther
@@ -81,14 +81,14 @@ const Contact = () => {
       {/* Content */}
       <div className="relative z-10 w-full flex flex-col items-center">
         {/* Heading Section */}
-        <div className='relative w-full text-center'>
-          <h1 className='flex gap-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[56px] md:leading-[67px] lg:leading-[90px] tracking-[10px] sm:tracking-[15px] mx-auto w-fit font-extrabold text-white'>
+        <div className='relative flex w-full flex-col items-center overflow-visible text-center'>
+          <h1 className='flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight md:leading-[67px] lg:leading-[90px] tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto w-fit px-2 font-extrabold text-white'>
             CONTACT
             <span className='text-tubeLight-effect font-extrabold'>ME</span>
           </h1>
 
           {/* Line below the heading */}
-          <div className='absolute w-[90%] sm:w-[70%] md:w-[50%] h-1 left-1/2 transform -translate-x-1/2 top-15 sm:top-12 md:top-14 lg:top-16 bg-slate-200 dark:bg-gray-500'>
+          <div className='relative mt-3 sm:mt-4 w-[90%] sm:w-[70%] md:w-[50%] h-1 bg-slate-200 dark:bg-gray-500'>
             {/* Dots on the left side */}
             <div className='absolute -left-4 sm:-left-6 top-1/2 transform -translate-y-1/2 flex gap-1'>
               <span className='w-2 h-2 bg-slate-200 dark:bg-gray-500 rounded-full'></span>

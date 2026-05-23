@@ -35,20 +35,21 @@ const Skills = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col items-center gap-8 px-4 py-16 sm:gap-12 sm:p-8 bg-gray-100 dark:bg-gray-900">
       {/* Centered Header */}
-      <div className="flex-1 flex justify-center items-center w-full">
-        <h1 className='text-[2rem] sm:text-[2.75rem] md:text-[3rem] lg:text-[3.8rem] tracking-[4px] sm:tracking-[15px] dancing_text'>
-          Skills
+      <div className="flex justify-center items-center w-full">
+        <h1 className='flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto w-fit px-2 font-extrabold text-center uppercase'>
+          My
+          <span className='text-tubeLight-effect font-extrabold'>Skills</span>
         </h1>
       </div>
 
       {/* Skills Grid */}
-      <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4'>
+      <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6'>
         {skills.map((element) => (
-          <Card className="h-fit p-7 flex flex-col justify-center items-center gap-3 bg-white dark:bg-gray-800" key={element._id}>
+          <Card className="min-h-32 p-4 sm:p-7 flex flex-col justify-center items-center gap-3 bg-white dark:bg-gray-800" key={element._id}>
             <img src={element.svg?.url} alt={element.name} className='h-12 sm:h-24 w-auto' />
-            <p className='text-muted dark:text-gray-300'>{element.name}</p>
+            <p className='text-sm sm:text-base text-muted dark:text-gray-300 text-center leading-tight'>{element.name}</p>
           </Card>
         ))}
       </div>

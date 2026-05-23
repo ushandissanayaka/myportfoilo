@@ -37,8 +37,9 @@ const MyWorks = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black">
       <div className="w-full max-w-4xl p-4">
-        <h1 className="text-[1.5rem] sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.8rem] mb-12 font-extrabold text-center text-gray-900 dark:text-white">
-          My Works
+        <h1 className="flex max-w-full flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-4 items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-[3px] sm:tracking-[8px] md:tracking-[15px] mx-auto mb-12 w-fit px-2 font-extrabold text-center uppercase text-gray-900 dark:text-white">
+          My
+          <span className="text-tubeLight-effect font-extrabold">Works</span>
         </h1>
 
         <ol className="relative border-none sm:border-s border-gray-200 dark:border-gray-700">
